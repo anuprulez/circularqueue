@@ -40,10 +40,10 @@ int main()
 			case 5:
 				is_queue_empty = is_empty();
 				if(is_queue_empty == 1){
-					printf("\nThe queue is not empty\n");
+					printf("\nThe circular queue is not empty\n");
 				}
 				else{
-					printf("\nThe queue is empty\n");
+					printf("\nThe circular queue is empty\n");
 				}
 			    break;
 			case 6:
@@ -58,16 +58,21 @@ int main()
 
 // Computes the size of the circular queue
 int find_size(){
-	list iterator = NULL;
-	int size = 0;
-	iterator = head;
-	iterator = iterator->next;
-	size++;
-	while(iterator != head){
+    if(is_empty() == 0){
+		printf("\nThe circular queue is empty\n");
+	}
+	else{
+		list iterator = NULL;
+		int size = 0;
+		iterator = head;
 		iterator = iterator->next;
 		size++;
-	}
-	printf("\nThe size of the circular queue is: %d\n", size);
+		while(iterator != head){
+			iterator = iterator->next;
+			size++;
+		}
+		printf("\nThe size of the circular queue is: %d\n", size);
+	}									
 	return 0;
 }
 
